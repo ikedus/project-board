@@ -12,7 +12,7 @@ class ProjectController extends Controller
     public function index()
     {	
     	$data = Project::all();
-    	return view('home', [$data]);
+    	return view('home', ['data' => $data]);
     }
 
     public function create(Insert $request)
@@ -61,7 +61,8 @@ class ProjectController extends Controller
     				break;
     		};
     	}
-    	dd($manyObj);
+    	
+        return redirect()->route('home')->with('status', 'Project ingevoerd!');
 
 
     	// $teachers =

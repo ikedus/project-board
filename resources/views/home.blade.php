@@ -5,22 +5,23 @@
 
 	<div class="container">
 	@if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
+                        <div class="box notification is-success">
+                            <p>{{ session('status') }}</p>
                         </div>
                     @endif
-		@for ($i = 0; $i < 5; $i++)
+		@foreach ($data as $project)
+
 	<div class="box tile notification">
 	<div class="tile is-ancestor">
 		<div class="tile is-parent is-vertical">
 			<div class="tile is-child">
 				<p class="title">projectnaam:</p>
-				<h1 class="subtitle">Lorem ipsum dolor sit amet</h1>
+				<h1 class="subtitle">{{$project->name}}</h1>
 	
 			</div>
 			<div class="tile is-child">
 					<p class="title">docent:</p>
-				<p class="subtitle">de slager</p>
+				<p class="subtitle">{{$project->teacher->first()->name}}</p>
 				
 			</div>
 			
@@ -30,8 +31,7 @@
 			<div class="tile is-child">
 				<h2 class="title">omschrijving:</h2>
 				<div class="content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua.</p>
+					<p>{{$project->description}}</p>
 				</div>
 			</div>
 			<div class="tile">
@@ -50,22 +50,23 @@
 		<div class="tile is-parent is-vertical">
 			<div class="tile is-child">
 				<h2 class="title">klant:</h2>
-				<p class="subtitle">lorem ipsum</p>
+				<p class="subtitle">{{$project->customer->first()->name}}</p>
 			</div>
 			<div class="tile is-child">
 				<h2 class="title">studenten:</h2>
-				<div class="content">
-					<p>
-						pieter</br>
-						sjohn</br>
-						teun</br>
-					</p>
+				<div class="subtitle">
+						@foreach ($project->student as $student)
+						{{$student->name}}
+						@if (!$loop->last)
+					</br>
+						@endif
+						@endforeach
 				</div>
 			</div>
 		</div>
 	</div>
 	</div>
-	@endfor
+	@endforeach
 	</div>
 
 

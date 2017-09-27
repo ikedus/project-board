@@ -14,16 +14,16 @@ class Project extends Model
 
     public function customer()
     {
-    	return $this->belongsToMany('App\Model\Name')->wherePivot('people_type','customer');
+    	return $this->belongsToMany('App\Model\Name')->wherePivot('name_type','customer');
     }
 
     public function teacher()
     {
-    	return $this->belongsToMany('App\Model\Name')->wherePivot('people_type','customer');;
+    	return $this->belongsToMany('App\Model\Name')->wherePivot('name_type','teacher');;
     }
 
     public function student()
     {
-    	return $this->belongsToMany('App\Model\Name')->wherePivot('people_type','customer');
+    	return $this->belongsToMany('App\Model\Name')->wherePivot('name_type','student');
     }
 }
