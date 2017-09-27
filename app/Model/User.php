@@ -29,6 +29,6 @@ class User extends Authenticatable
 
     public function name()
     {
-      return $this->belongsTo('App\model\Name');
+      return $this->belongsTo('App\Model\Name');
     }
 }
