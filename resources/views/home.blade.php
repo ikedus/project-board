@@ -9,6 +9,11 @@
                             <p>{{ session('status') }}</p>
                         </div>
                     @endif
+        @if (count($data) <= 0)
+			<div class="box notification is-warning">
+				<p>Er zijn geen projecten om te tonen.</p>
+			</div>
+        @else
 		@foreach ($data as $project)
 
 	<div class="box tile notification">
@@ -67,6 +72,7 @@
 	</div>
 	</div>
 	@endforeach
+	@endif
 	</div>
 
 
