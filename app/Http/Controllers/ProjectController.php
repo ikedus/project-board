@@ -71,7 +71,7 @@ class ProjectController extends Controller
 
     public function createForm()
     {
-    	return view('Projects.Form');
+    	return view('Projects.form');
     }
 
     private function insertName($value)
