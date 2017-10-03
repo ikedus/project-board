@@ -110,7 +110,7 @@
     <div class="field">
       <div class="control">
         <button type="submit" class="button is-primary">
-          Send message
+          Creer project
         </button>
       </div>
     </div>
